@@ -1,272 +1,153 @@
-# LifeOS Framework Specification v0.1
+# LifeOS Framework Specification v0.1.1
 
 **English** | [简体中文](./spec-v0.1.zh-CN.md)
 
 > **Know Yourself · Navigate Life · Evolve Yourself**
 
-## 1. What Is LifeOS?
+LifeOS is an open-source personal operating system for self-awareness, context understanding, better judgment, action, learning, and growth. It does not define a universally correct life.
 
-LifeOS is an open-source personal operating system for self-awareness, growth, decision-making, and action.
-
-It is not a prescription for the "right life," a personality test, a productivity tool, or a collection of success formulas. It provides a stable, extensible, and personalizable framework for continuously moving through:
+## 1. Canonical Structure
 
 ```text
-Know Yourself → Understand Context → Clarify → Think → Decide → Communicate → Act → Review → Learn → Evolve
+Foundation Models
+Self / Context / Role / Goal
+        ↓
+Kernel Runtime
+Quick / Standard / Deep
+        ↓
+Core OS
+Thinking / Decision / Communication / Execution / Learning / Emotion & Energy / Review
+        ↓
+Optional Domain Layer
+Playbooks / Methods / Tools / Templates
+        ↓
+Action → Feedback → Review → Evolution
 ```
 
-The ultimate goal is not dependence on LifeOS, but the development of one's own judgment, operating methods, and growth system.
+The stable LifeOS core is **Models + Kernel + Core OS**. Optional domain artifacts must prove incremental value.
 
-## 2. Architecture
+## 2. Foundation Models
 
-```text
-                    LifeOS
-                      │
-       ┌──────────────┼──────────────┐
-       │              │              │
-     SELF           CONTEXT        GOAL
-   Who am I?       Where am I?   Where am I going?
-       │              │              │
-       └──────────────┼──────────────┘
-                      ↓
-                    CORE OS
-                      │
-   Thinking · Decision · Communication · Execution · Learning
-                      │
-               Emotion & Energy
-                      │
-                    Review
-                      ↓
-                  PLAYBOOKS
-                      ↓
-             Experience / Feedback
-                      ↓
-                 Self Evolution
-```
+### Self Model
+Dynamic, editable, evidence-based representation of values, needs, strengths, limitations, patterns, resources, relationships, responsibilities, life stage, and current state. Important self claims should track evidence, counterevidence, confidence, source contexts, and review date.
 
-## 3. Four Foundation Models
-
-### 3.1 Self Model
-
-Answers: **Who am I, and what is my current state?**
-
-Maintain identity, values, needs, interests, strengths, limitations, patterns, resources, relationships, responsibilities, and life stage.
-
-The Self Model is versioned and editable:
-
-```text
-Self v1.0 → Experience → Reflection → Learning → Self v1.1
-```
-
-Personality types and labels may provide observations, but must never become permanent definitions.
-
-### 3.2 Context Model
-
-Answers: **What environment am I operating in?**
+### Context Model
 
 ```text
 Context = Role + Goal + People + Rules + Resources + Constraints + Risks + Time
 ```
 
-A person can change strategy across contexts without replacing their underlying values or operating system.
+### Role Model
+Defines purpose, responsibilities, authority, expectations, relationships, boundaries, outcomes, and risks. Runtime should explicitly detect responsibility-authority gaps.
 
-### 3.3 Role Model
+### Goal Model
+Supports four modes:
 
-Answers: **Who am I in this context, and what am I responsible for?**
+- `explore` — gain information before committing;
+- `commit` — pursue an explicit outcome;
+- `maintain` — preserve a working state;
+- `exit` — intentionally stop or leave.
 
-```text
-Role
-├── Purpose
-├── Responsibility
-├── Authority
-├── Expectations
-├── Relationships
-├── Boundaries
-├── Outcomes
-└── Risks
-```
+A lack of long-term direction does not automatically require a long-term goal; exploration may be the correct mode.
 
-LifeOS uses:
+## 3. Kernel Runtime
 
 ```text
-Stable Core + Role Adapter + Context Strategy
+Choose Runtime Level
+→ Observe
+→ Clarify
+→ Load Models
+→ Separate Facts / Interpretations / Assumptions / Values / Unknowns
+→ Diagnose
+→ Route Core OS
+→ Optional Domain Support
+→ Next Action
+→ Checkpoint / Revisit Condition
+→ Review
+→ Evidence-based Update
 ```
 
-### 3.4 Goal Model
+### Runtime Levels
 
-Answers: **Where am I going, why, and what does completion mean?**
+**Quick** — low-impact, low-risk, reversible.  
+**Standard** — ordinary life/work problems with meaningful context and dependencies.  
+**Deep** — high impact, uncertainty, risk, or irreversibility.
 
-Clarify Why, What, Outcome, Measure, Horizon, Cost, Boundary, and Next Action. Goals should serve values rather than merely becoming tasks.
+Use only the minimum useful depth.
 
-## 4. Core OS
+## 4. Seven Core OS Systems
 
-Self is the foundation model. Seven reusable systems form the operational core.
+- **Thinking** — turn information into a reliable problem model.
+- **Decision** — make explainable and revisable choices under trade-offs.
+- **Communication** — create sufficient shared understanding and coordination.
+- **Execution** — turn choices into observable outcomes.
+- **Learning** — turn unknowns into transferable capability.
+- **Emotion & Energy** — manage human runtime state that affects judgment and action.
+- **Review** — turn experience into testable lessons and system changes.
 
-### Thinking
+## 5. Methodology Hierarchy
 
 ```text
-Observe → Clarify → Decompose → Analyze → Synthesize → Hypothesize
+Principle → Process → Method → Tool → Template
 ```
 
-Separate facts, interpretations, assumptions, opinions, values, and unknowns.
+Methods are plugins. The framework should not become an encyclopedia of techniques.
 
-### Decision
+## 6. Optional Domain Playbooks
+
+Playbooks are no longer a mandatory architectural layer. They are admitted only when they provide meaningful domain-specific sequencing, checks, outputs, or cognitive-cost reduction beyond the Kernel.
+
+See [Playbook Admission Rule](./playbook-admission.md).
+
+Current classification:
+
+- Complex Problem → Kernel / Thinking Pattern
+- Important Decision → Decision System + Template
+- New Role / Environment → Trial Playbook
+- Unfamiliar Project → Validated Domain Playbook
+- Important Disagreement → Trial Playbook
+- New Domain Learning → Validated Domain Playbook
+- Failure Recovery → Validated Domain Playbook
+
+## 7. Evolution
 
 ```text
-Decision = Goal + Options + Criteria + Trade-offs + Risk + Commitment
+Experience → Review → Evidence → Lesson → Change → Verify → Update
 ```
 
-Aim for explainable and revisable choices under current information and constraints, not imaginary certainty.
-
-### Communication
-
-```text
-Intent → Audience → Message → Channel → Feedback → Alignment
-```
-
-### Execution
-
-```text
-Outcome → Milestone → Action → Owner → Time → Checkpoint → Adjustment
-```
-
-### Learning
-
-```text
-Question → Model → Practice → Feedback → Correction → Transfer
-```
-
-Learning is demonstrated through understanding, explanation, application, transfer, and creation.
-
-### Emotion & Energy
-
-Account for emotion, attention, stress, recovery, physical state, motivation, and cognitive load. Humans are not assumed to be perfectly rational or infinitely energetic.
-
-### Review
-
-```text
-Expected → Actual → Gap → Why → Lesson → Change → Verify
-```
-
-Experience becomes reusable learning through reflection and change.
-
-## 5. Unified LifeOS Loop
-
-```text
-1. Observe
-2. Clarify
-3. Context
-4. Think
-5. Decide
-6. Communicate
-7. Act
-8. Observe Results
-9. Review
-10. Learn
-11. Evolve
-```
-
-Use the stable loop before reaching for a specific technique.
-
-## 6. Methodology Layers
-
-LifeOS must not become an encyclopedia of disconnected methods.
-
-```text
-Principle
-   ↓
-Process
-   ↓
-Method
-   ↓
-Tool
-   ↓
-Template
-```
-
-Principles guide direction. Processes create stability. Methods provide strategies. Tools reduce cost. Templates accelerate execution.
-
-## 7. Playbook Specification
-
-A Playbook is an executable LifeOS unit for a class of real-world problems.
-
-```text
-Situation
-Problem
-Goal
-Role
-Context
-Diagnosis
-Key Questions
-Options
-Trade-offs
-Decision
-Communication
-Action Plan
-Checkpoint
-Review
-Learning
-```
-
-Initial playbooks should cover major life decisions, adapting to a new role, career choices, taking over complex projects, conflict, learning new domains, and recovering from failed goals.
+Updates may affect Self / Role / Goal models, principles, methods, personal patterns, or domain playbooks. Important Self updates must pass an evidence gate.
 
 ## 8. AI-Native LifeOS
 
-AI is an augmentation layer, not an answer authority.
-
 ```text
 User Situation
-      ↓
-Context Analyzer
-      ↓
-Role Analyzer
-      ↓
-Problem Classifier
-      ↓
-LifeOS Core
-      ↓
-Playbook Router
-      ↓
-Guided Thinking
-      ↓
-Decision Support
-      ↓
-Action Planning
-      ↓
-Review & Learning
+→ Runtime Level Router
+→ Model Loader
+→ Problem Diagnosis
+→ Core OS Router
+→ Optional Domain Router
+→ Decision / Communication / Next Action
+→ Checkpoint
+→ Review & Update
 ```
 
-AI should expose assumptions and uncertainty, distinguish facts from judgments, permit user override, and avoid defining a user's values or life goals for them.
+AI should expose uncertainty, distinguish fact from inference, preserve user autonomy, avoid inventing values, and avoid unnecessary framework overhead.
 
-## 9. Personalization
+## 9. Validation Status
 
-```text
-Default LifeOS
-      ↓
-My Self Model
-My Values
-My Principles
-My Roles
-My Methods
-My Playbooks
-My Experiences
-My Lessons
-      ↓
-My LifeOS
-```
+Synthetic framework validation has demonstrated that the architecture can complete 20/20 standard scenarios without P0 blockers. This is evidence of internal framework coherence, not yet proof of real-world superiority over a capable general AI.
 
-A mature LifeOS should increasingly resemble the person using it rather than the framework's authors.
+The next release gate requires blind/human A/B validation.
 
-## 10. Definition of v0.1
+## 10. Definition of v0.1.1
 
-v0.1 is complete when the following are stable enough to build upon:
+v0.1.1 is the validation-driven architecture baseline consisting of:
 
-- philosophy and boundaries;
-- Self / Context / Role / Goal models;
+- four evidence-aware Foundation Models;
+- Quick / Standard / Deep Kernel Runtime;
 - seven Core OS systems;
-- unified operating loop;
-- Principle-to-Template methodology hierarchy;
-- Playbook specification;
-- bilingual convention;
-- AI-native foundation.
-
-Only then should LifeOS expand aggressively into a library of specific methods and playbooks.
+- optional evidence-gated domain playbooks;
+- Principle → Template hierarchy;
+- bilingual AI Skill;
+- validation and regression protocols;
+- a frozen baseline suitable for blind A/B evaluation.
