@@ -2,6 +2,8 @@
 
 > **Know Yourself · Navigate Life · Evolve Yourself**
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 LifeOS is an open-source personal operating system for self-awareness, personal growth, better decisions, effective action, and lifelong evolution.
 
 LifeOS does not define what a "successful life" should look like. Instead, it provides a reusable framework to help people understand themselves, understand their context, think clearly, make decisions, communicate, act, learn, reflect, and continuously improve.
@@ -73,16 +75,29 @@ LifeOS is organized around four layers:
 9. Roles may change; the underlying operating system should remain reusable.
 10. The long-term goal is greater autonomy, not greater dependence on LifeOS.
 
+## Language Policy
+
+Chinese and English are both first-class languages in LifeOS. Core concepts, models, specifications, templates, and major playbooks should maintain semantic parity across both languages rather than treating one language as a secondary translation.
+
+Naming convention:
+
+- English default: `document.md`
+- Simplified Chinese: `document.zh-CN.md`
+
 ## Project Structure
 
 ```text
 LifeOS/
 ├── README.md
+├── README.zh-CN.md
 ├── ROADMAP.md
+├── ROADMAP.zh-CN.md
 ├── CONTRIBUTING.md
+├── CONTRIBUTING.zh-CN.md
 ├── LICENSE
 ├── docs/
-│   └── architecture.md
+│   ├── architecture.md
+│   └── architecture.zh-CN.md
 ├── core/
 ├── models/
 ├── playbooks/
