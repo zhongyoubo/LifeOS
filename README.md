@@ -4,71 +4,49 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-LifeOS is an open-source personal operating system for self-awareness, personal growth, better decisions, effective action, and lifelong evolution.
-
-LifeOS does not define what a "successful life" should look like. Instead, it provides a reusable framework to help people understand themselves, understand their context, think clearly, make decisions, communicate, act, learn, reflect, and continuously improve.
+LifeOS is an open-source personal operating system for self-awareness, context understanding, better judgment, effective action, learning, and lifelong growth.
 
 ## Start Here
 
-- [Framework Specification v0.1](docs/spec-v0.1.md)
-- [Architecture](docs/architecture.md)
+- [Framework Specification v0.1.1](docs/spec-v0.1.md)
+- [Architecture v0.1.1](docs/architecture.md)
 - [Operating Protocol / Kernel Runtime](docs/operating-protocol.md)
 - [Foundation Models](models/)
 - [Core OS](core/README.md)
+- [Playbook Admission Rule](docs/playbook-admission.md)
 - [Templates](templates/README.md)
-- [7 Golden Playbooks](playbooks/golden-playbooks.md)
-- [LifeOS Skill v0.1](skills/lifeos/SKILL.md)
-- [End-to-End Examples](examples/README.md)
+- [LifeOS Skill v0.1.1](skills/lifeos/SKILL.md)
+- [Validation](validation/README.md)
 - [Roadmap](ROADMAP.md)
 
-## Vision
-
-Build an open methodology and practical operating system that helps people:
-
-- know themselves more clearly;
-- understand roles, goals, constraints, and environments;
-- think and decide with structure;
-- communicate and collaborate effectively;
-- turn intentions into action;
-- learn faster from experience;
-- reflect, adapt, and grow over time.
-
-## Core Loop
+## Canonical Architecture
 
 ```text
-Situation
-   ↓
-Self + Context + Role + Goal
-   ↓
-Think
-   ↓
-Decide
-   ↓
-Communicate
-   ↓
-Act
-   ↓
-Observe
-   ↓
-Review
-   ↓
-Learn
-   ↓
-Evolve
+Foundation Models
+Self / Context / Role / Goal
+        ↓
+Kernel Runtime
+Quick / Standard / Deep
+        ↓
+Core OS
+Thinking / Decision / Communication / Execution / Learning / Emotion & Energy / Review
+        ↓
+Optional Domain Layer
+Playbooks / Methods / Tools / Templates
+        ↓
+Action → Feedback → Review → Evolution
 ```
 
-## LifeOS Architecture
+The stable center of LifeOS is **Models + Kernel + Core OS**. Domain Playbooks are optional and must prove incremental value.
 
-LifeOS is organized around four foundation models and a reusable operational core:
+## Foundation Models
 
-1. **Self** — Who am I? What matters to me? What are my strengths, limits, needs, responsibilities, and current state?
-2. **Context** — What situation am I operating in: people, rules, resources, constraints, risks, and time?
-3. **Role** — Who am I in this context, what am I responsible for, and what are my boundaries?
-4. **Goal** — What change do I want, why does it matter, and what does done mean?
-5. **Core OS** — Thinking, Decision, Communication, Execution, Learning, Emotion & Energy, and Review.
-6. **Playbooks** — Context-sensitive execution paths for recurring real-world situations.
+- **Self** — who am I, what matters, what patterns/resources do I currently have?
+- **Context** — where am I operating and what constraints, people, risks, and rules matter?
+- **Role** — what am I responsible for, what authority do I actually have, and what are my boundaries?
+- **Goal** — am I exploring, committing, maintaining, or exiting; what outcome or information do I need next?
 
-## Core Systems
+## Seven Core OS Systems
 
 - Thinking
 - Decision
@@ -81,63 +59,55 @@ LifeOS is organized around four foundation models and a reusable operational cor
 ## Design Principles
 
 1. LifeOS does not prescribe a single definition of a good life.
-2. LifeOS helps people think; it should not replace personal judgment.
-3. Facts, assumptions, values, and decisions should be distinguished clearly.
-4. Processes matter more than collecting methods.
-5. Every framework should eventually support action.
-6. Every action should generate feedback and learning.
-7. Self-models are dynamic and must remain editable.
-8. The system should become increasingly personalized over time.
-9. Roles may change; the underlying operating system should remain reusable.
-10. The long-term goal is greater autonomy, not greater dependence on LifeOS.
+2. It helps people think; it does not replace personal judgment.
+3. Facts, interpretations, assumptions, values, and unknowns should be separated when useful.
+4. Use the minimum framework depth required by the situation.
+5. Process matters more than collecting methods.
+6. Action should generate feedback and learning.
+7. Self models remain editable and evidence-based.
+8. Structural context problems should not be misread as personal defects.
+9. Playbooks must prove domain-specific value before becoming stable framework artifacts.
+10. The long-term objective is greater autonomy, not greater dependence on LifeOS.
+
+## Validation Status
+
+LifeOS has completed a 20-scenario synthetic framework validation with no P0 blockers. This supports internal framework coherence, not yet real-world superiority over a capable general AI.
+
+Current release status:
+
+```text
+Framework Gate        PASS
+Public Validation     HOLD
+```
+
+The next gate is Blind / Human A/B Validation against a general AI baseline.
 
 ## Language Policy
 
-Chinese and English are both first-class languages in LifeOS. Core concepts, models, specifications, templates, and major playbooks should maintain semantic parity across both languages rather than treating one language as a secondary translation.
-
-Naming convention:
+Chinese and English are both first-class languages. Core concepts and major specifications should maintain semantic parity.
 
 - English default: `document.md`
 - Simplified Chinese: `document.zh-CN.md`
-
-The AI Skill automatically follows the user's language by default.
 
 ## Project Structure
 
 ```text
 LifeOS/
-├── README.md / README.zh-CN.md
-├── ROADMAP.md / ROADMAP.zh-CN.md
-├── docs/
-│   ├── spec-v0.1.*
-│   ├── architecture.*
-│   └── operating-protocol.*
-├── models/
-│   ├── self-model.*
-│   ├── context-model.*
-│   ├── role-model.*
-│   └── goal-model.*
-├── core/
-│   ├── thinking.*
-│   ├── decision.*
-│   ├── communication.*
-│   ├── execution.*
-│   ├── learning.*
-│   ├── emotion-energy.*
-│   └── review.*
-├── templates/
-├── playbooks/
-├── skills/lifeos/
+├── docs/          # architecture, spec, kernel, admission rules
+├── models/        # Self / Context / Role / Goal
+├── core/          # seven Core OS systems
+├── templates/     # reusable execution artifacts
+├── playbooks/     # optional domain playbooks
+├── skills/lifeos/ # AI runtime skill
+├── validation/    # scenarios, rubric, regressions, A/B protocol
 └── examples/
 ```
 
 ## Status
 
-**Current stage: v0.1 — Foundation / executable framework**
+**Current stage: v0.1.1 — validation-driven architecture baseline**
 
-The v0.1 foundation now includes the four models, seven Core OS systems, Kernel Runtime, core templates, seven Golden Playbooks, a bilingual AI Skill, and initial end-to-end validation examples.
-
-The next focus is validation: apply LifeOS to diverse real situations, identify overlap or missing boundaries, refine schemas, and only then expand the method and playbook libraries.
+The framework is now frozen enough for blind external evaluation before adding more methods or playbooks.
 
 ## License
 
