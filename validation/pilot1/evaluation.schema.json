@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LifeOS Pilot-1 Evaluation Record",
+  "type": "object",
+  "required": ["evaluator_id","case_id","scores","pairwise"],
+  "properties": {
+    "evaluator_id": {"type":"string"},
+    "case_id": {"type":"string"},
+    "scores": {
+      "type":"object",
+      "required":["A","B"],
+      "properties": {
+        "A":{"$ref":"#/$defs/score"},
+        "B":{"$ref":"#/$defs/score"}
+      }
+    },
+    "pairwise": {
+      "type":"object",
+      "required":["overall","understands_situation","next_action","would_use","unnecessary_complexity"],
+      "properties": {
+        "overall":{"enum":["A","B","Tie"]},
+        "understands_situation":{"enum":["A","B","Tie"]},
+        "next_action":{"enum":["A","B","Tie"]},
+        "would_use":{"enum":["A","B","Tie"]},
+        "unnecessary_complexity":{"enum":["A","B","Both","Neither"]}
+      }
+    },
+    "reason":{"type":"string"}
+  },
+  "$defs": {
+    "score": {
+      "type":"object",
+      "required":["clarity","context_fit","insight","decision_support","actionability","autonomy","process_cost"],
+      "properties": {
+        "clarity":{"type":"integer","minimum":1,"maximum":5},
+        "context_fit":{"type":"integer","minimum":1,"maximum":5},
+        "insight":{"type":"integer","minimum":1,"maximum":5},
+        "decision_support":{"type":"integer","minimum":1,"maximum":5},
+        "actionability":{"type":"integer","minimum":1,"maximum":5},
+        "autonomy":{"type":"integer","minimum":1,"maximum":5},
+        "process_cost":{"type":"integer","minimum":1,"maximum":5}
+      }
+    }
+  }
+}
