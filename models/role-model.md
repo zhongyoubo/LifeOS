@@ -16,7 +16,8 @@ role:
   outcomes: []
   risks: []
   conflicts_with_other_roles: []
-  version: "0.1"
+  responsibility_authority_gaps: []
+  version: "0.1.1"
 ```
 
 ## Role Adapter
@@ -27,7 +28,19 @@ LifeOS does not require identical behavior across roles. It uses:
 Stable Core + Role Adapter + Context Strategy
 ```
 
-A person may simultaneously be a parent, partner, friend, engineer, and manager. Values may remain relatively stable while responsibilities, authority, communication, success criteria, and strategies change.
+## Responsibility / Authority Gap
+
+When a role is accountable for outcomes but lacks sufficient decision rights, resources, information access, or escalation paths, record the mismatch explicitly instead of reducing later failure to personal execution weakness.
+
+```text
+Responsibility
+    ↓ compare
+Authority / Resources / Information / Escalation Path
+    ↓
+Gap?
+```
+
+If a gap exists, prioritize clarifying authorization, escalation, resources, or responsibility boundaries through Communication and Decision.
 
 ## Role Conflict
 
