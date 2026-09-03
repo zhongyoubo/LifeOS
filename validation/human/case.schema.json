@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LifeOS Human Validation Case",
+  "type": "object",
+  "required": ["participant_id", "case_id", "lifeos_version", "problem", "before", "session", "immediate"],
+  "properties": {
+    "participant_id": {"type": "string"},
+    "case_id": {"type": "string"},
+    "lifeos_version": {"type": "string"},
+    "problem": {
+      "type": "object",
+      "required": ["description", "desired_progress"],
+      "properties": {
+        "description": {"type": "string"},
+        "why_now": {"type": "string"},
+        "desired_progress": {"type": "string"},
+        "largest_unknown": {"type": "string"}
+      }
+    },
+    "before": {
+      "type": "object",
+      "required": ["clarity", "decision_confidence", "knows_next_step"],
+      "properties": {
+        "clarity": {"type": "integer", "minimum": 1, "maximum": 5},
+        "decision_confidence": {"type": "integer", "minimum": 1, "maximum": 5},
+        "knows_next_step": {"type": "integer", "minimum": 1, "maximum": 5}
+      }
+    },
+    "session": {
+      "type": "object",
+      "required": ["runtime", "user_input", "lifeos_output", "actual_decision", "next_action", "checkpoint"],
+      "properties": {
+        "runtime": {"enum": ["quick", "standard", "deep", "auto"]},
+        "user_input": {"type": "string"},
+        "lifeos_output": {"type": "string"},
+        "actual_decision": {"type": "string"},
+        "next_action": {"type": "string"},
+        "checkpoint": {"type": "string"}
+      }
+    },
+    "immediate": {
+      "type": "object",
+      "required": ["clarity", "context_fit", "decision_confidence", "actionability", "autonomy", "process_cost", "would_use_again"],
+      "properties": {
+        "clarity": {"type": "integer", "minimum": 1, "maximum": 5},
+        "context_fit": {"type": "integer", "minimum": 1, "maximum": 5},
+        "decision_confidence": {"type": "integer", "minimum": 1, "maximum": 5},
+        "actionability": {"type": "integer", "minimum": 1, "maximum": 5},
+        "autonomy": {"type": "integer", "minimum": 1, "maximum": 5},
+        "process_cost": {"type": "integer", "minimum": 1, "maximum": 5},
+        "would_use_again": {"type": "integer", "minimum": 1, "maximum": 5},
+        "most_valuable": {"type": "string"},
+        "unnecessary": {"type": "string"},
+        "new_insight": {"type": "string"},
+        "misunderstanding": {"type": "string"}
+      }
+    },
+    "follow_up_7d": {
+      "type": ["object", "null"],
+      "properties": {
+        "follow_through": {"enum": ["yes", "partial", "no"]},
+        "non_execution_reason": {"type": "string"},
+        "outcome_direction": {"enum": ["improved", "unchanged", "worse", "unclear"]},
+        "what_worked": {"type": "string"},
+        "what_failed": {"type": "string"},
+        "learning_transfer": {"enum": ["yes", "partial", "no"]},
+        "can_continue_without_lifeos": {"enum": ["yes", "partial", "no"]}
+      }
+    },
+    "research": {
+      "type": ["object", "null"],
+      "properties": {
+        "classification": {"enum": ["KEEP", "CHANGE", "REMOVE", "ADD", "UNCERTAIN"]},
+        "severity": {"enum": ["None", "P0", "P1", "P2", "P3"]},
+        "evidence": {"type": "string"},
+        "framework_implication": {"type": "string"},
+        "candidate_change": {"type": "string"},
+        "wait_for_more_evidence": {"type": "boolean"}
+      }
+    }
+  }
+}
