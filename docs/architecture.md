@@ -1,55 +1,75 @@
-# LifeOS Architecture
+# LifeOS Architecture v0.1.1
 
-## 1. Purpose
+**English** | [简体中文](./architecture.zh-CN.md)
 
-LifeOS is designed as a reusable personal operating system rather than a fixed set of life instructions.
+LifeOS is a reusable personal operating system, not a fixed set of life instructions.
 
-Its fundamental cycle is:
+## 1. Canonical Architecture
 
 ```text
-Know Yourself
-      ↓
-Understand Context
-      ↓
-Think
-      ↓
-Decide
-      ↓
-Communicate
-      ↓
-Act
-      ↓
-Observe
-      ↓
-Review
-      ↓
-Learn
-      ↓
-Evolve
+                     LifeOS
+                       │
+        ┌──────────────┼──────────────┐
+        │              │              │
+     MODELS          KERNEL        CORE OS
+        │              │              │
+ Self / Context   Runtime Level   Thinking
+ Role / Goal      Observe         Decision
+                  Clarify         Communication
+                  Diagnose        Execution
+                  Route           Learning
+                  Act             Emotion & Energy
+                  Review          Review
+        │              │              │
+        └──────────────┴──────────────┘
+                       ↓
+              OPTIONAL DOMAIN LAYER
+                       │
+        Playbooks / Methods / Templates
+                       ↓
+                 Real-world Action
+                       ↓
+              Experience & Feedback
+                       ↓
+              Model / System Evolution
 ```
 
-## 2. Four-Layer Architecture
+The stable center of LifeOS is **Models + Kernel Runtime + Core OS**. Playbooks are optional domain accelerators, not part of the mandatory kernel.
 
-### Layer 1 — Self
+## 2. Foundation Models
 
-The Self layer maintains a dynamic model of the person:
+Four models describe the current operating state:
 
-- values;
-- goals;
-- strengths;
-- limitations;
-- interests;
-- abilities;
-- responsibilities;
-- relationships;
-- resources;
-- current life stage.
+- **Self** — who am I, what matters, what patterns and resources do I currently have?
+- **Context** — what environment, people, rules, constraints, risks, and time conditions matter?
+- **Role** — what am I responsible for, what authority do I actually have, and where are the boundaries?
+- **Goal** — what mode am I in: explore, commit, maintain, or exit; what outcome or information do I need next?
 
-The Self Model is never considered permanent. It evolves with experience.
+Models are editable and evidence-based. They are not permanent labels.
 
-### Layer 2 — Core OS
+## 3. Kernel Runtime
 
-The reusable capabilities of LifeOS:
+The Kernel is the mandatory operating protocol:
+
+```text
+Choose Depth
+→ Observe
+→ Clarify
+→ Load Models
+→ Separate Facts / Interpretations / Assumptions / Values / Unknowns
+→ Diagnose
+→ Route Core OS
+→ Produce Next Action
+→ Checkpoint
+→ Review
+→ Update
+```
+
+Runtime depth uses Quick / Standard / Deep according to impact, uncertainty, risk, and irreversibility.
+
+## 4. Core OS
+
+Seven reusable systems provide cross-domain capabilities:
 
 1. Thinking
 2. Decision
@@ -59,89 +79,83 @@ The reusable capabilities of LifeOS:
 6. Emotion & Energy
 7. Review
 
-Together with Self, these form the eight core systems of LifeOS.
+Core OS systems are reusable across work, relationships, learning, transitions, and life decisions.
 
-### Layer 3 — Context
+## 5. Optional Domain Layer
 
-LifeOS behavior must adapt to the situation without replacing the underlying operating system.
+Playbooks, methods, tools, and templates are optional. They must reduce cognitive or execution cost without duplicating the Kernel.
 
-A context may contain:
+```text
+Kernel Runtime
+   ↓
+Need domain-specific sequencing/checks/outputs?
+   ├─ No → continue with Core OS directly
+   └─ Yes → load Optional Playbook
+```
 
-- Role
-- Goal
-- People
-- Rules
-- Resources
-- Constraints
-- Risks
-- Time horizon
+A Playbook is admitted only when it adds domain-specific value that cannot be expressed as a trivial restatement of the general Runtime.
 
-### Layer 4 — Playbooks
-
-Playbooks translate the core system into practical responses to recurring real-life situations.
-
-Examples include:
+Examples with strong domain value include:
 
 - taking over an unfamiliar project;
-- entering a new role;
-- resolving disagreement;
-- making a major decision;
-- learning a new domain;
-- recovering a project that is going off track.
+- learning a new domain under a deadline;
+- recovering and learning after an important failure.
 
-## 3. Operating Principle
+Generic flows such as “handle a complex problem” should normally remain Kernel/Core patterns rather than independent Playbooks.
+
+See [Playbook Admission Rule](./playbook-admission.md).
+
+## 6. Evolution Mechanism
 
 ```text
-Stable Core + Dynamic Context + Practical Playbook + Feedback = Personal Growth
+Experience
+→ Review
+→ Evidence
+→ Lesson
+→ Change
+→ Verify
+→ Update Self / Role / Goal / Principles / Methods / Playbooks
 ```
 
-The Core should remain broadly reusable. Context changes. Playbooks compose LifeOS capabilities for a particular class of problem. Feedback updates the person's understanding, methods, and future behavior.
+Important Self Model changes pass through an evidence gate. A single result should not become a permanent identity statement.
 
-## 4. Personalization
-
-The default project provides a reference LifeOS.
-
-Over time:
+## 7. Personalization
 
 ```text
-LifeOS Default
+Default LifeOS
       ↓
-Personalized LifeOS
-      ↓
-My Principles
 My Models
+My Principles
 My Methods
-My Playbooks
+My Domain Playbooks
 My Experiences
 My Lessons
+      ↓
+My LifeOS
 ```
 
-The objective is not dependency on the framework. The objective is increasing self-knowledge, judgment, agency, and capability.
+The objective is increasing judgment, agency, and capability, not dependence on the framework.
 
-## 5. AI-Native Direction
-
-An AI implementation should follow a structured pipeline rather than simply answer questions:
+## 8. AI-Native Runtime
 
 ```text
-Situation
-   ↓
-Context Analysis
-   ↓
-Role Analysis
-   ↓
-Problem Classification
-   ↓
-Relevant LifeOS Systems
-   ↓
-Playbook Routing
-   ↓
-Guided Thinking
-   ↓
-Decision Support
-   ↓
-Action Plan
-   ↓
-Review & Learning
+User Situation
+      ↓
+Runtime Level Router
+      ↓
+Foundation Model Loader
+      ↓
+Problem Diagnosis
+      ↓
+Core OS Router
+      ↓
+Optional Domain Router
+      ↓
+Next Action / Decision / Communication
+      ↓
+Checkpoint
+      ↓
+Review & Evidence-based Update
 ```
 
-AI should augment human judgment, not replace it.
+AI augments judgment. It must expose uncertainty, avoid inventing user values, and use no more framework than the situation requires.
