@@ -1,0 +1,6 @@
+{
+  "run": "pilot1-chatgpt-same-model-run-01",
+  "algorithm": "SHA-256",
+  "reveal_key_sha256": "a03ec5e70bd22fd8a24c753aafa431b038d30168429cf19e803bb911d65f633c",
+  "note": "The exact Reveal Key is withheld until evaluator scores are locked. Publish it after evaluation and verify this hash."
+}
