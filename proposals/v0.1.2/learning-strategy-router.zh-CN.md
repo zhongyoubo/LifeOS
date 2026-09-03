@@ -1,248 +1,282 @@
-# v0.1.2 Candidate — Learning Strategy Router
+# v0.1.2 Candidate — Learning Strategy Router v2
 
 [English](./learning-strategy-router.md) | **简体中文**
 
-> 状态：**PROPOSAL / NOT PART OF FROZEN v0.1.1**
->
-> 本提案不修改当前冻结基线。只有验证证明存在稳定增量价值后，才进入 v0.1.2。
+> 状态：**REVISED PROPOSAL / NOT PART OF FROZEN v0.1.1**  
+> 依据：`validation/candidates/runs/c1-isolation-01.zh-CN.md`  
+> Candidate Decision：**CHANGE → v2**
 
-## 1. 问题
+## 1. Purpose
 
-当前 Learning System 已定义 `Question → Map → Learn → Explain → Practice → Feedback → Correct → Apply → Transfer`，但用户说“我想学 X”时，不同目标实际上需要不同学习策略。
+v0.1.1 Learning System 已负责通用学习循环：
 
-“了解 AI Agent”“一个月后参与 AI Agent 架构评审”“成为 Agent 开发工程师”“明天给别人讲 Agent”不能使用同一学习计划。
+```text
+Question → Map → Learn → Explain → Practice → Feedback → Correct → Apply → Transfer
+```
 
-因此需要在 Learning Process 前增加一个轻量策略路由器：
+C1 v2 不重复建设学习方法体系，只解决前置问题：
+
+> **针对当前学习任务，什么是最小且合适的学习策略？**
 
 ```text
 Learning Request
       ↓
-Learning Diagnosis
+Intent
       ↓
-Learning Strategy Router
+Target Mastery Depth
       ↓
-Method Stack
+Current Gap
       ↓
-Learning Path
+Deadline / Use Context
       ↓
-Learn → Practice → Apply → Verify → Transfer
+Success Evidence
+      ↓
+Minimum Useful Strategy
+      ↓
+Existing Learning Loop
+      ↓
+Evidence → Adapt → Transfer
 ```
 
-## 2. Learning Diagnosis
+## 2. Minimum Diagnosis
 
-只收集会改变学习策略的信息。信息已经足够时不要机械提问。
+只获取会改变策略的信息。已有信息足够时直接路由，不进行问卷式盘问。
 
-核心变量：
+最小变量：
 
-- **Target** — 要学什么？
-- **Purpose** — 为什么学？
-- **Current Level** — 当前已经会什么？
-- **Required Depth** — 了解 / 理解 / 应用 / 判断 / 专业 / 教授？
-- **Deadline** — 什么时候需要达到目标？
-- **Use Context** — 考试、工作、项目、决策、教学还是兴趣？
-- **Constraints** — 时间、资源、语言、工具、实践机会？
-- **Success Evidence** — 什么证据能证明“已经学会”？
+- **Target** — 学什么？
+- **Intent** — 为什么/以什么方式学？
+- **Target Mastery Depth** — 这次需要学到多深？
+- **Current Gap** — 当前主要缺什么？
+- **Deadline / Use Context** — 何时、在哪里使用？
+- **Success Evidence** — 什么行为或结果能证明已经达到本次目标？
 
-推荐最小诊断：
+不是每次都需要显式询问全部变量。
+
+## 3. Learning Intent
+
+Intent 用于避免所有学习都被套进同一种功利目标。
 
 ```text
-Learn What?
-For What?
-Current Level?
-By When?
-What must you be able to do?
+explore      开放探索、形成问题和连接
+understand   建立理解和解释能力
+perform      完成具体技能或任务
+judge        比较、分析并形成专业判断
+create       构建、设计或解决新问题
+teach        清楚解释并帮助他人理解
+retain       长期保持并可调用
 ```
 
-## 3. Learning Goal Levels
+一个任务可以有主 Intent + 次 Intent。
 
-不要把“学习”当作单一状态。
+### Explore 特别规则
+
+对于哲学、历史、艺术、文化或纯兴趣探索，Success Evidence 不必等于绩效输出。
+
+可以表现为：
+- 能提出更好的问题；
+- 能解释重要观点与分歧；
+- 能建立跨主题连接；
+- 能形成并修正自己的理解；
+- 愿意持续探索。
+
+不要强迫用户把所有学习转化为项目、考试或职业能力。
+
+## 4. Target Mastery Depth
+
+原 L0–L5 改为 **Target Mastery Depth**。它描述“当前主题本次需要达到的深度”，不是用户的永久学习能力等级。
 
 ```text
-L0 Exposure       我见过/知道它是什么
-L1 Understand     我能用自己的话解释
-L2 Apply          我能按规则使用
-L3 Analyze/Judge  我能比较方案、发现问题、做判断
-L4 Create         我能独立解决新问题/构建东西
-L5 Teach/Transfer 我能教授，并迁移到新的情境
+Exposure       能识别、知道它是什么
+Understand     能用自己的话解释
+Apply          能在熟悉模式下使用
+Analyze/Judge  能比较方案、发现问题、说明取舍
+Create         能独立解决新问题或构建东西
+Teach/Transfer 能教授，并迁移到不同情境
 ```
 
-用户不需要总是达到 L5。策略必须服务于目标深度，避免过度学习。
+深度只是规划辅助。最终验证必须使用具体行为证据，不能用等级标签替代 Evidence。
 
-## 4. Strategy Router
+## 5. Current Gap
 
-| Learning Intent | Default Strategy | Evidence of Learning |
-|---|---|---|
-| 快速了解 | Overview → Concept Map → Key Concepts → Examples | 能解释整体地图和核心术语 |
-| 理解复杂概念 | First Principles → Mental Model → Analogy → Boundary/Contrast → Retrieval | 能解释为什么、边界和反例 |
-| 系统掌握领域 | Domain Map → Fundamentals → Modules → Connections → Cases → Review | 能建立领域模型并连接模块 |
-| 学会技能 | Demonstration → Decomposition → Deliberate Practice → Feedback → Repetition | 能在无提示下完成任务 |
-| 解决实际问题 | Problem-driven Learning → Just-in-time Research → Apply → Feedback → Review | 真实问题被推进且形成经验 |
-| 快速进入陌生领域 | Domain Map → Core 20% → Vocabulary → Canonical Cases → Expert Sources → Decision Practice | 能与专业人员讨论并做基础判断 |
-| 应对考试 | Syllabus Map → Retrieval Practice → Spaced Repetition → Error Log → Mock Test | 模拟测试与错题表现改善 |
-| 准备讲给别人 | Feynman → Explain → Gap Detection → Relearn → Teach-back → Q&A | 能脱稿解释并回答问题 |
-| 达到专业水平 | Fundamentals → Deliberate Practice → Projects → Expert Feedback → Case Library → Reflection | 能处理新颖、复杂、非标准问题 |
-| 长期保持 | Retrieval → Spacing → Interleaving → Real Application → Periodic Review | 延迟测试和实际应用仍可调用 |
-
-这些是默认策略，不是硬编码处方。Router 应根据实际约束组合和删减。
-
-## 5. Method Selection Rule
-
-LifeOS 不应该展示方法论目录然后让用户自己拼装。
-
-方法选择顺序：
+只识别当前最主要的瓶颈：
 
 ```text
-Goal
-→ Learning Gap
-→ Required Evidence
-→ Strategy
-→ Minimum Useful Methods
-→ Practice
-→ Verification
+Knowledge Gap  缺少必要信息/事实
+Model Gap      缺少理解结构、因果或边界
+Skill Gap      知道但做不出来
+Feedback Gap   做了但不知道哪里对/错
+Transfer Gap   熟悉场景会做，新场景不会迁移
 ```
 
-原则：**先决定要形成什么能力，再选择方法。**
+不要为了分类而分类。若 Gap 不影响下一步策略，可以省略。
 
-### Method Families
+## 6. Strategy Selection
 
-- Knowledge Mapping — Concept Map / Domain Map
-- Understanding — First Principles / Analogy / Contrast / Feynman
-- Memory — Active Recall / Spaced Repetition / Interleaving
-- Skill — Demonstration / Deliberate Practice / Feedback
-- Application — Project-based / Problem-driven / Case-based Learning
-- Transfer — Teach-back / Novel Cases / Cross-context Application
-- Reflection — Error Log / Review / Learning Journal
+```text
+Intent
++ Target Mastery Depth
++ Current Gap
++ Deadline / Use Context
++ Success Evidence
+        ↓
+Minimum Useful Strategy
+```
 
-## 6. Learning Path Output Contract
+示例：
 
-当用户明确要求学习某个主题时，LifeOS 应优先给出可执行的学习方案，而不是只解释方法论。
+| Situation | Minimum Useful Strategy |
+|---|---|
+| 30 分钟了解 AI Agent | Overview → Concept Map → Core Concepts → Example → Explain-back → Stop |
+| 一个月后架构评审 | Domain Map → Mechanisms → Tradeoffs → Cases → Architecture Review Practice |
+| 理论很多但不会做项目 | Reduce Input → Real Project → Deliberate Practice → Feedback → Review |
+| 明天要讲陌生概念 | Explain → Gap Detection → Teach-back → Likely Q&A → Rehearse |
+| 考试记不住 | Retrieval → Spacing → Error Log → Mock Test |
+| 半年达到生产级工程能力 | Real Systems → Design/Implementation → Failure Cases → Expert Review → Novel Problems |
+| 长期学哲学 | Map → Primary Ideas → Reading/Dialogue → Reflection/Writing → Connections → Continue Exploring |
 
-标准输出：
+这些不是固定处方。Router 应删减到当前任务真正需要的最小组合。
+
+## 7. Method Boundary
+
+C1 不拥有独立 Method Library。
+
+Feynman、Active Recall、Spaced Repetition、Deliberate Practice、Project-based Learning 等仍属于 Learning System 可用方法。
+
+C1 只负责：
+
+```text
+Select Why / When
+        ↓
+Learning System executes How
+```
+
+这样避免 Candidate 与 Core Learning 重复维护相同方法。
+
+## 8. Success Evidence
+
+Success Evidence 是 v2 的核心变量。
+
+原则：
+
+> **先定义什么证据代表达到目标，再决定怎么学。**
+
+示例：
+
+```text
+Understand → 无提示解释 + 能说出边界
+Judge      → 比较两个真实方案并说明 tradeoff
+Perform    → 无关键提示完成任务
+Create     → 独立处理新问题/真实项目
+Teach      → 清楚讲解 + 回答基础追问
+Retain     → 延迟后仍能检索和应用
+Explore    → 问题质量、理解连接、观点修正与持续探索
+```
+
+“看完课程”“读完一本书”通常只是 Activity Evidence，不是 Mastery Evidence。
+
+## 9. Output Contract
+
+默认最小输出：
 
 ```text
 Learning Goal
-Current → Target Gap
+Target Depth
 Recommended Strategy
-Why This Strategy
-Learning Map
-Stages / Sequence
-Practice Tasks
-Verification / Success Criteria
-Resources Needed (if applicable)
-First Learning Action
-Review Checkpoint
+Why
+First Practice Action
+Success Evidence
+Checkpoint
 ```
 
-简单请求使用 Quick 版本，不强制输出全部字段。
+只有复杂任务才扩展 Learning Map、Stages、Resources、Practice Set 等字段。
 
-## 7. Verification Gate
-
-学习不能用“看完资料”作为完成标准。
-
-建议证据层级：
+Quick 请求可以只输出：
 
 ```text
-Recognition
-   ↓
-Recall
-   ↓
-Explain
-   ↓
-Apply
-   ↓
-Solve Novel Problem
-   ↓
-Teach / Transfer
+Goal → Strategy → First Action → Check
 ```
 
-完成条件必须与目标 Level 匹配。例如：
+## 10. Adaptive Loop
 
-- 目标 L1：可以解释即可；
-- 目标 L3：必须能够比较方案并说明取舍；
-- 目标 L4：必须有真实项目/新问题证据。
-
-## 8. Adaptive Loop
+进入现有 Learning Loop 后，根据 Evidence 更新：
 
 ```text
-Plan
- ↓
-Learn
- ↓
-Retrieve / Explain
- ↓
 Practice / Apply
- ↓
+      ↓
 Evidence
- ↓
-Gap Diagnosis
- ├─ Knowledge Gap → targeted input
- ├─ Model Gap     → explanation / contrast
- ├─ Skill Gap     → practice
- ├─ Feedback Gap  → expert / test / review
- └─ Transfer Gap  → novel case
- ↓
-Next Learning Cycle
+      ↓
+What is the current bottleneck?
+      ↓
+Knowledge / Model / Skill / Feedback / Transfer
+      ↓
+Adjust only what is needed
+      ↓
+Next Cycle
 ```
 
-不要因为计划已经制定就坚持原路线；证据应驱动下一轮学习。
+计划不是承诺；Evidence 可以改变路线。
 
-## 9. AI Guidance
+## 11. Stop Rule
+
+停止继续规划并开始学习，当：
+
+- Intent 足够清楚；
+- Target Depth 足够清楚；
+- 当前主要 Gap 足够清楚，或可以通过实践快速发现；
+- Success Evidence 已定义；
+- 已有一个能产生反馈的 First Action。
+
+对于低风险、短时学习请求，应更早 Stop。
+
+## 12. AI Guidance
 
 AI 应：
 
-- 根据学习目标选择策略，而不是默认推荐课程列表；
-- 信息足够时直接制定路径，不做问卷式盘问；
-- 优先让用户主动检索、解释、实践；
-- 生成练习、案例、反例和反馈；
-- 在用户错误时诊断 gap 类型，而不仅给答案；
-- 根据 evidence 调整难度；
-- 明确区分“AI 帮用户完成”和“用户已经掌握”；
-- 必要时推荐权威资料，但资料数量服从学习目标；
-- 避免让用户因方法论过载而无法开始。
+- 先判断学习意图，再选策略；
+- 不默认把学习职业化、考试化或项目化；
+- 不把 Target Depth 当用户能力标签；
+- 优先选择最小有效策略；
+- 信息足够时直接行动，不机械提问；
+- 使用现有 Learning Methods，不重复展示方法目录；
+- 用行为证据验证学习，而不是内容消费；
+- 区分“AI 完成了任务”和“用户掌握了能力”；
+- Evidence 显示用户已掌握时减少帮助；
+- 在真实反馈出现后允许改变学习路线。
 
-## 10. Stop Rule
+## 13. Validation Status
 
-学习计划的分析阶段应在以下条件满足时停止：
+Isolation Test 01：**CHANGE**。
 
-- 目标深度足够清楚；
-- 当前差距足够清楚；
-- 已有一个合理的最小学习路径；
-- 可以通过实践获得更多信息。
+已确认候选增量主要来自：
 
-然后立即进入第一个学习动作。
+```text
+Target Depth
++ Use Context / Deadline
++ Current Gap
++ Success Evidence
+→ Strategy Selection
+```
 
-## 11. Validation Cases
+已发现并在 v2 修复：
+- 方法重复；
+- L0–L5 等级实体化风险；
+- 简单请求过度诊断；
+- Explore 学习被过度工具化（P1）；
+- 假精确度。
 
-至少增加以下对照测试：
+下一 Gate：使用 L01–L07 做 v2 Regression；之后再进入 Human Learning Validation。
 
-1. “我想了解 AI Agent，先建立整体认知。”
-2. “一个月后我要参加 AI Agent 架构评审，怎么学？”
-3. “我看了很多机器学习资料，但还是不会做项目。”
-4. “明天我要给团队讲一个完全陌生的概念，怎么准备？”
-5. “我准备考试，知识点很多但记不住。”
-6. “我已经会基本编程，想达到能独立做生产级项目的程度。”
-7. “我只有 30 分钟想弄懂一个概念。”（测试 Quick / Process Cost）
-8. “我想长期学习哲学，没有考试和截止日期。”（测试非功利/探索型学习）
+## 14. Admission Gate
 
-验证重点：
+C1 v2 仍然不是 Core。
 
-- Context Fit 是否提高；
-- Actionability 是否提高；
-- 是否比通用学习建议更能匹配目标；
-- Process Cost 是否可接受；
-- 用户是否真的实践；
-- 是否形成 Learning Transfer；
-- 是否避免不必要的长期计划。
+只有在 Regression + Human Validation 中证明：
+- Strategy Fit 稳定提升；
+- 用户更快进入有效实践；
+- Success Evidence 更匹配真实目标；
+- Quick 场景 Process Cost 不恶化；
+- Autonomy 不下降；
+- 存在真实学习/保持/迁移证据；
 
-## 12. Admission Decision
-
-只有满足以下条件才建议进入 Core Learning：
-
-- 在多种学习意图下稳定选择不同策略；
-- 相比现有 Learning System 有明确增量，而非换名字；
-- 用户更快进入实践；
-- Process Cost 不系统性增加；
-- 不降低 Autonomy；
-- Human Validation 中存在实际学习/迁移证据。
-
-否则应降级为 Learning Pattern / Template，而不是扩张 Core OS。
+才考虑 KEEP。否则 DOWNGRADE / REMOVE。
