@@ -8,6 +8,19 @@ LifeOS is an open-source personal operating system for self-awareness, personal 
 
 LifeOS does not define what a "successful life" should look like. Instead, it provides a reusable framework to help people understand themselves, understand their context, think clearly, make decisions, communicate, act, learn, reflect, and continuously improve.
 
+## Start Here
+
+- [Framework Specification v0.1](docs/spec-v0.1.md)
+- [Architecture](docs/architecture.md)
+- [Operating Protocol / Kernel Runtime](docs/operating-protocol.md)
+- [Foundation Models](models/)
+- [Core OS](core/README.md)
+- [Templates](templates/README.md)
+- [7 Golden Playbooks](playbooks/golden-playbooks.md)
+- [LifeOS Skill v0.1](skills/lifeos/SKILL.md)
+- [End-to-End Examples](examples/README.md)
+- [Roadmap](ROADMAP.md)
+
 ## Vision
 
 Build an open methodology and practical operating system that helps people:
@@ -25,7 +38,7 @@ Build an open methodology and practical operating system that helps people:
 ```text
 Situation
    ↓
-Self + Context
+Self + Context + Role + Goal
    ↓
 Think
    ↓
@@ -34,6 +47,8 @@ Decide
 Communicate
    ↓
 Act
+   ↓
+Observe
    ↓
 Review
    ↓
@@ -44,16 +59,17 @@ Evolve
 
 ## LifeOS Architecture
 
-LifeOS is organized around four layers:
+LifeOS is organized around four foundation models and a reusable operational core:
 
-1. **Self** — Who am I? What matters to me? What are my strengths, limits, needs, responsibilities, and current stage of life?
-2. **Core OS** — Thinking, decision-making, communication, execution, learning, energy/state management, and reflection.
-3. **Context** — Roles, goals, people, constraints, resources, risks, rules, and time horizon.
-4. **Playbooks** — Practical problem-solving guides for real-life situations.
+1. **Self** — Who am I? What matters to me? What are my strengths, limits, needs, responsibilities, and current state?
+2. **Context** — What situation am I operating in: people, rules, resources, constraints, risks, and time?
+3. **Role** — Who am I in this context, what am I responsible for, and what are my boundaries?
+4. **Goal** — What change do I want, why does it matter, and what does done mean?
+5. **Core OS** — Thinking, Decision, Communication, Execution, Learning, Emotion & Energy, and Review.
+6. **Playbooks** — Context-sensitive execution paths for recurring real-world situations.
 
 ## Core Systems
 
-- Self
 - Thinking
 - Decision
 - Communication
@@ -84,35 +100,44 @@ Naming convention:
 - English default: `document.md`
 - Simplified Chinese: `document.zh-CN.md`
 
+The AI Skill automatically follows the user's language by default.
+
 ## Project Structure
 
 ```text
 LifeOS/
-├── README.md
-├── README.zh-CN.md
-├── ROADMAP.md
-├── ROADMAP.zh-CN.md
-├── CONTRIBUTING.md
-├── CONTRIBUTING.zh-CN.md
-├── LICENSE
+├── README.md / README.zh-CN.md
+├── ROADMAP.md / ROADMAP.zh-CN.md
 ├── docs/
-│   ├── architecture.md
-│   └── architecture.zh-CN.md
-├── core/
+│   ├── spec-v0.1.*
+│   ├── architecture.*
+│   └── operating-protocol.*
 ├── models/
-├── playbooks/
+│   ├── self-model.*
+│   ├── context-model.*
+│   ├── role-model.*
+│   └── goal-model.*
+├── core/
+│   ├── thinking.*
+│   ├── decision.*
+│   ├── communication.*
+│   ├── execution.*
+│   ├── learning.*
+│   ├── emotion-energy.*
+│   └── review.*
 ├── templates/
-├── skills/
+├── playbooks/
+├── skills/lifeos/
 └── examples/
 ```
 
-The detailed framework, models, templates, playbook specification, and AI skill architecture will be developed incrementally from v0.1 onward.
-
 ## Status
 
-**Current stage: v0.1 — Foundation**
+**Current stage: v0.1 — Foundation / executable framework**
 
-The first milestone focuses on defining the project's philosophy, architecture, core models, operating loops, and contribution standards before expanding the playbook library.
+The v0.1 foundation now includes the four models, seven Core OS systems, Kernel Runtime, core templates, seven Golden Playbooks, a bilingual AI Skill, and initial end-to-end validation examples.
+
+The next focus is validation: apply LifeOS to diverse real situations, identify overlap or missing boundaries, refine schemas, and only then expand the method and playbook libraries.
 
 ## License
 
