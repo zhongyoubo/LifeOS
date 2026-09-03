@@ -10,6 +10,19 @@ LifeOS 是一套开源的人生自我管理与成长操作系统，帮助人认�
 
 LifeOS 不定义什么才是“成功的人生”。它更关注帮助每个人建立一套可复用的方法，用来寻找属于自己的答案。
 
+## 从这里开始
+
+- [LifeOS Framework Specification v0.1](docs/spec-v0.1.zh-CN.md)
+- [总体架构](docs/architecture.zh-CN.md)
+- [Operating Protocol / Kernel Runtime](docs/operating-protocol.zh-CN.md)
+- [四大基础模型](models/)
+- [七大 Core OS](core/README.zh-CN.md)
+- [核心模板](templates/README.zh-CN.md)
+- [7 个 Golden Playbooks](playbooks/golden-playbooks.zh-CN.md)
+- [LifeOS Skill v0.1](skills/lifeos/SKILL.md)
+- [端到端示例](examples/README.zh-CN.md)
+- [Roadmap](ROADMAP.zh-CN.md)
+
 ## 愿景
 
 构建一套开放、可实践、可演进的方法论与个人操作系统，帮助人：
@@ -27,7 +40,7 @@ LifeOS 不定义什么才是“成功的人生”。它更关注帮助每个人�
 ```text
 现实情境
    ↓
-自我 + 环境
+Self + Context + Role + Goal
    ↓
 思考
    ↓
@@ -36,6 +49,8 @@ LifeOS 不定义什么才是“成功的人生”。它更关注帮助每个人�
 沟通
    ↓
 行动
+   ↓
+观察结果
    ↓
 复盘
    ↓
@@ -46,20 +61,21 @@ LifeOS 不定义什么才是“成功的人生”。它更关注帮助每个人�
 
 ## LifeOS 总体架构
 
-LifeOS 由四个主要层次组成：
+LifeOS 由四个基础模型、Core OS 和场景执行层组成：
 
-1. **Self / 自我** —— 我是谁？我重视什么？我的优势、限制、需求、责任和当前人生阶段是什么？
-2. **Core OS / 核心操作系统** —— 思考、决策、沟通、执行、学习、情绪与能量管理、复盘。
-3. **Context / 情境** —— 当前角色、目标、人员、规则、资源、约束、风险与时间尺度。
-4. **Playbooks / 情景操作手册** —— 针对真实人生问题提供可执行的问题解决流程。
+1. **Self / 自我** —— 我是谁？我重视什么？我的优势、限制、需要、责任和当前状态是什么？
+2. **Context / 情境** —— 我正在什么环境中运行？涉及哪些人、规则、资源、约束、风险和时间条件？
+3. **Role / 角色** —— 在当前情境下我是谁？负责什么？权限和边界是什么？
+4. **Goal / 目标** —— 我希望发生什么变化？为什么重要？怎样算完成？
+5. **Core OS / 核心运行系统** —— 思考、决策、沟通、执行、学习、情绪与能量、复盘。
+6. **Playbooks / 场景方案** —— 针对典型真实问题，通过 LifeOS 内核形成可执行路径。
 
-## 八大核心系统
+## 七大 Core OS
 
-- Self / 自我认识
 - Thinking / 思考
 - Decision / 决策
 - Communication / 沟通
-- Execution / 做事与执行
+- Execution / 执行
 - Learning / 学习
 - Emotion & Energy / 情绪与能量
 - Review / 复盘
@@ -86,33 +102,44 @@ LifeOS 由四个主要层次组成：
 - 英文默认文件：`document.md`
 - 简体中文文件：`document.zh-CN.md`
 
+LifeOS Skill 默认自动跟随用户输入语言输出。
+
 ## 项目结构
 
 ```text
 LifeOS/
-├── README.md
-├── README.zh-CN.md
-├── ROADMAP.md
-├── ROADMAP.zh-CN.md
-├── CONTRIBUTING.md
-├── CONTRIBUTING.zh-CN.md
-├── LICENSE
+├── README.md / README.zh-CN.md
+├── ROADMAP.md / ROADMAP.zh-CN.md
 ├── docs/
-│   ├── architecture.md
-│   └── architecture.zh-CN.md
-├── core/
+│   ├── spec-v0.1.*
+│   ├── architecture.*
+│   └── operating-protocol.*
 ├── models/
-├── playbooks/
+│   ├── self-model.*
+│   ├── context-model.*
+│   ├── role-model.*
+│   └── goal-model.*
+├── core/
+│   ├── thinking.*
+│   ├── decision.*
+│   ├── communication.*
+│   ├── execution.*
+│   ├── learning.*
+│   ├── emotion-energy.*
+│   └── review.*
 ├── templates/
-├── skills/
+├── playbooks/
+├── skills/lifeos/
 └── examples/
 ```
 
 ## 当前阶段
 
-**v0.1 — Foundation / 基础体系构建**
+**v0.1 — Foundation / 可运行基础框架**
 
-v0.1 重点不是快速堆积大量方法，而是先确定 LifeOS 的哲学基础、总体架构、核心模型、统一运行循环和贡献标准，再逐步扩展具体方法与 Playbook。
+当前已经具备：四大基础模型、七大 Core OS、Kernel Runtime、核心模板、7 个 Golden Playbooks、双语 AI Skill，以及第一批端到端验证示例。
+
+下一阶段重点不再是继续堆内容，而是用更多真实人生和工作场景验证整个 Runtime，识别系统重叠、边界缺失和 Schema 不足，再进入方法库与 Playbook 扩展。
 
 ## License
 
