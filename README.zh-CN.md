@@ -8,8 +8,21 @@
 
 LifeOS 是一套开源的个人认知、情境理解、判断、行动、学习与持续成长操作系统。
 
+它同时追求两件事：**让 LifeOS 本身更有能力，也让用户本人越来越有能力。**
+
+> **LifeOS 的最终目标，是帮助你成为自己的 LifeOS。**
+
+## 项目使命
+
+帮助人更好地认识自己、理解世界、形成判断、采取行动，并从经历中持续成长。
+
+LifeOS 不以“替用户做更多事情”为终点，而以提升用户的认知、判断、行动、学习、元认知和自主性为长期目标。
+
+详细愿景见：[LifeOS 愿景与能力模型](docs/vision.zh-CN.md)
+
 ## 从这里开始
 
+- [项目愿景与能力模型](docs/vision.zh-CN.md)
 - [Framework Specification v0.1.1](docs/spec-v0.1.zh-CN.md)
 - [总体架构 v0.1.1](docs/architecture.zh-CN.md)
 - [Operating Protocol / Kernel Runtime](docs/operating-protocol.zh-CN.md)
@@ -20,6 +33,23 @@ LifeOS 是一套开源的个人认知、情境理解、判断、行动、学习�
 - [LifeOS Skill v0.1.1](skills/lifeos/SKILL.md)
 - [Validation](validation/README.zh-CN.md)
 - [Roadmap](ROADMAP.zh-CN.md)
+
+## 双能力主线
+
+```text
+LifeOS
+│
+├── System Capability
+│   └── Understand → Diagnose → Reason → Plan → Support Action → Learn / Adapt
+│
+└── Human Capability
+    └── Awareness → Framing → Thinking → Judgment → Action → Learning → Reflection → Metacognition → Adaptability
+```
+
+每次重要运行都应尽量同时创造：
+
+- **Outcome Value**：当前问题被更好地理解、判断或推进；
+- **Capability Value**：用户以后更能独立处理类似问题。
 
 ## 规范架构
 
@@ -70,6 +100,8 @@ LifeOS 的稳定核心是 **Models + Kernel + Core OS**。Domain Playbook 只是
 8. 结构性情境问题不能被误判为个人缺陷。
 9. Playbook 必须证明领域特有价值，才能成为稳定框架资产。
 10. 最终目标是增强人的自主性，而不是增强对 LifeOS 的依赖。
+11. 每次重要运行都应考虑是否产生了可迁移的 Capability Value。
+12. 认知提升不是增加自信，而是让判断和置信度更接近现实。
 
 ## Validation 状态
 
@@ -95,13 +127,13 @@ Public Validation     HOLD
 
 ```text
 LifeOS/
-├── docs/          # 架构、规范、Kernel、准入规则
+├── docs/          # 愿景、架构、规范、Kernel、准入规则
 ├── models/        # Self / Context / Role / Goal
 ├── core/          # 七大 Core OS
 ├── templates/     # 可复用执行模板
 ├── playbooks/     # 可选领域 Playbooks
 ├── skills/lifeos/ # AI Runtime Skill
-├── validation/    # 场景、评分、回归、A/B 协议
+├── validation/    # 场景、评分、回归、A/B、真实用户验证
 └── examples/
 ```
 
@@ -109,7 +141,7 @@ LifeOS/
 
 **v0.1.1 — Validation-driven Architecture Baseline / 验证驱动架构基线**
 
-当前框架已冻结到足以进行 Blind External Evaluation 的状态，在此之前不建议继续扩充方法或 Playbook 数量。
+当前核心框架保持冻结，愿景、验证体系与未来候选能力可以继续完善，但在 Blind / Human Validation 结果出来前，不应未经证据扩大冻结核心。
 
 ## License
 
