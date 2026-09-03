@@ -6,8 +6,21 @@
 
 LifeOS is an open-source personal operating system for self-awareness, context understanding, better judgment, effective action, learning, and lifelong growth.
 
+It pursues two goals at the same time: **make LifeOS more capable, and make the user more capable.**
+
+> **The ultimate goal of LifeOS is to help you become your own LifeOS.**
+
+## Mission
+
+Help people understand themselves, understand their world, form better judgment, take meaningful action, and continuously grow from experience.
+
+LifeOS does not optimize for doing more on behalf of the user. Its long-term objective is to strengthen human cognition, judgment, action, learning, metacognition, and autonomy.
+
+See: [LifeOS Vision and Capability Model](docs/vision.md)
+
 ## Start Here
 
+- [Vision and Capability Model](docs/vision.md)
 - [Framework Specification v0.1.1](docs/spec-v0.1.md)
 - [Architecture v0.1.1](docs/architecture.md)
 - [Operating Protocol / Kernel Runtime](docs/operating-protocol.md)
@@ -18,6 +31,23 @@ LifeOS is an open-source personal operating system for self-awareness, context u
 - [LifeOS Skill v0.1.1](skills/lifeos/SKILL.md)
 - [Validation](validation/README.md)
 - [Roadmap](ROADMAP.md)
+
+## Two Capability Tracks
+
+```text
+LifeOS
+│
+├── System Capability
+│   └── Understand → Diagnose → Reason → Plan → Support Action → Learn / Adapt
+│
+└── Human Capability
+    └── Awareness → Framing → Thinking → Judgment → Action → Learning → Reflection → Metacognition → Adaptability
+```
+
+Every meaningful run should aim to create both:
+
+- **Outcome Value** — the current problem is better understood, judged, or advanced;
+- **Capability Value** — the user becomes more able to handle similar problems independently in the future.
 
 ## Canonical Architecture
 
@@ -68,6 +98,8 @@ The stable center of LifeOS is **Models + Kernel + Core OS**. Domain Playbooks a
 8. Structural context problems should not be misread as personal defects.
 9. Playbooks must prove domain-specific value before becoming stable framework artifacts.
 10. The long-term objective is greater autonomy, not greater dependence on LifeOS.
+11. Important runs should consider whether transferable Capability Value was created.
+12. Better cognition does not mean more confidence; judgment and confidence should become better calibrated to reality.
 
 ## Validation Status
 
@@ -93,13 +125,13 @@ Chinese and English are both first-class languages. Core concepts and major spec
 
 ```text
 LifeOS/
-├── docs/          # architecture, spec, kernel, admission rules
+├── docs/          # vision, architecture, spec, kernel, admission rules
 ├── models/        # Self / Context / Role / Goal
 ├── core/          # seven Core OS systems
 ├── templates/     # reusable execution artifacts
 ├── playbooks/     # optional domain playbooks
 ├── skills/lifeos/ # AI runtime skill
-├── validation/    # scenarios, rubric, regressions, A/B protocol
+├── validation/    # scenarios, rubric, regressions, A/B and human validation
 └── examples/
 ```
 
@@ -107,7 +139,7 @@ LifeOS/
 
 **Current stage: v0.1.1 — validation-driven architecture baseline**
 
-The framework is now frozen enough for blind external evaluation before adding more methods or playbooks.
+The frozen core remains stable. Vision, validation infrastructure, and future candidate capabilities may evolve, but the frozen core should not expand without evidence from Blind / Human Validation.
 
 ## License
 
