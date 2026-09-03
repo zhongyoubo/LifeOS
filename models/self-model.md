@@ -25,19 +25,27 @@ self:
     attention: ""
     pressure: ""
   assumptions_about_self: []
+  evidence_log: []
   open_questions: []
-  version: "0.1"
+  version: "0.1.1"
 ```
+
+## Evidence Gate
+
+Important Self Model updates should not turn one event into a permanent label. Record:
+
+```yaml
+self_hypothesis:
+  statement: ""
+  evidence: []
+  counterevidence: []
+  confidence: "low | medium | high"
+  source_contexts: []
+  review_date: ""
+```
+
+Capability, personality, long-term limitations, value changes, recurring patterns, and statements such as “I am / am not suited for this role” especially require an Evidence Gate.
 
 ## Principles
 
-- Describe rather than permanently label.
-- Distinguish observations, self-evaluations, and external evaluations.
-- Allow contradictions; people are dynamic systems.
-- Record evidence, not only conclusions.
-- Update continuously instead of seeking a final definition of the self.
-- Preserve earlier versions to make growth visible.
-
-## Update Triggers
-
-Major experiences, role changes, long-term goal changes, recurring behavior patterns, important feedback, failures, successes, and periodic reviews can all trigger Self Model updates.
+Describe rather than permanently label. Distinguish observations, self-evaluations, and external evaluations. Allow contradictions. Record evidence and counterevidence. A single success or failure usually creates a hypothesis, not an identity. Update continuously and preserve earlier versions. Important changes should be re-tested across later behavior or different contexts.
