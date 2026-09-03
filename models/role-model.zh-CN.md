@@ -16,7 +16,8 @@ role:
   outcomes: []
   risks: []
   conflicts_with_other_roles: []
-  version: "0.1"
+  responsibility_authority_gaps: []
+  version: "0.1.1"
 ```
 
 ## Role Adapter
@@ -27,7 +28,21 @@ LifeOS 不要求人在所有角色中表现一致，而是：
 Stable Core + Role Adapter + Context Strategy
 ```
 
-例如，一个人可以同时是父母、伴侣、朋友、工程师和管理者。价值观可能相对稳定，但责任、权限、沟通方式、成功标准和行为策略会随角色变化。
+## Responsibility / Authority Gap
+
+当一个角色需要为结果负责，但缺少相应决策权、资源权、信息权或协调权时，应显式记录，而不是把后续失败简单归因于个人执行力。
+
+检查：
+
+```text
+Responsibility
+    ↓ compare
+Authority / Resources / Information / Escalation Path
+    ↓
+Gap?
+```
+
+若存在 Gap，应优先通过 Communication / Decision 明确授权、升级路径、资源或责任边界。
 
 ## 角色冲突
 
