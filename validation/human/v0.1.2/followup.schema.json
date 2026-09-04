@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LifeOS v0.1.2 Human Validation Follow-up",
+  "type": "object",
+  "required": ["followup_id", "session_id", "case_id", "user_id", "days_after", "action_initiated", "follow_through", "outcome_direction", "independent_reuse", "p0", "p1"],
+  "properties": {
+    "followup_id": {"type": "string"},
+    "session_id": {"type": "string"},
+    "case_id": {"type": "string"},
+    "user_id": {"type": "string"},
+    "days_after": {"type": "integer", "minimum": 1, "maximum": 90},
+    "action_initiated": {"enum": ["yes", "partial", "no", "not_applicable"]},
+    "follow_through": {"enum": ["yes", "partial", "no", "not_applicable"]},
+    "outcome_direction": {"enum": ["positive", "mixed", "neutral", "negative", "unknown"]},
+    "judgment_revised": {"type": "boolean"},
+    "learning": {"type": "string"},
+    "independent_reuse": {"type": "boolean"},
+    "transfer_evidence": {"type": ["string", "null"]},
+    "assistance_needed_next": {"enum": ["more", "same", "less", "unknown"]},
+    "dependency_signal": {"type": "string"},
+    "negative_consequence": {"type": "string"},
+    "p0": {"type": "array", "items": {"type": "string"}},
+    "p1": {"type": "array", "items": {"type": "string"}},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false
+}
