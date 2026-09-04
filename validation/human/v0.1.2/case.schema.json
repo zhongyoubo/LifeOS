@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LifeOS v0.1.2 Human Validation Case",
+  "type": "object",
+  "required": ["case_id", "user_id", "case_type", "problem_goal", "real_problem"],
+  "properties": {
+    "case_id": {"type": "string", "minLength": 1},
+    "user_id": {"type": "string", "minLength": 1, "description": "Pseudonymous ID only"},
+    "case_type": {"enum": ["C1_LEARNING", "C2_LONGITUDINAL", "C3_JUDGMENT", "MIXED", "QUICK_CONTROL"]},
+    "problem_goal": {"type": "string", "minLength": 1},
+    "real_problem": {"type": "boolean", "const": true},
+    "why_it_matters": {"type": "string"},
+    "related_case_id": {"type": ["string", "null"]},
+    "planned_followup_days": {"type": "integer", "minimum": 0, "maximum": 90},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false
+}
