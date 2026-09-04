@@ -1,0 +1,1 @@
+{"case_id":"EXAMPLE-QUICK-001","user_id":"example-user","case_type":"QUICK_CONTROL","problem_goal":"Understand a simple concept in 15 minutes","real_problem":true,"why_it_matters":"Example record only; replace/remove before Round 1 analysis","related_case_id":null,"planned_followup_days":0,"notes":"EXAMPLE_ONLY: aggregate.py excludes case IDs starting with EXAMPLE-"}
